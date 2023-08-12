@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Notice -->
+<html color-mode="user" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>>HTMX 📝</title>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.3"
+      integrity="sha384-lVb3Rd/Ca0AxaoZg5sACe8FJKF0tnUgR2Kd7ehUOG5GCcROv5uBIZsOqovBAcWua"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/mvp.css" /> -->
+    <!-- custom main.css -->
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <main class="split-screen" hx-boost="true">
+      <nav class="split-screen__half" hx-trigger="load" hx-get="http://localhost:8000/">
+        <!-- List of articles will go here -->
+      </nav>
+      <content id="content" class="split-screen__half">
+        <!-- Content below will be replaced -->
+        <h1>HTMX 📝</h1>
+        <p>This is a simple yet powerful site and tech stack 😎.</p>
+      </content>
+    </main>
+  </body>
+</html>
