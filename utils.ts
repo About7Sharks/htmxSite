@@ -13,6 +13,7 @@ export const createHeader = (data) => {
 // base url for the server
 export const url = () => {
   let url = "http://localhost:8000/";
+  console.log(Deno.hostname());
   if (!Deno.hostname().includes("local")) {
     url = "https://htmxexample.deno.dev/";
   }

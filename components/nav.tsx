@@ -8,6 +8,7 @@ export const navbar = async () => {
     return <li>No articles found</li>;
   }
   const _url = url();
+  console.log(_url);
   return await renderToString(
     <>
       {articles.map(({ data }) => (
