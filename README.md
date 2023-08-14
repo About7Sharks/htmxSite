@@ -17,6 +17,8 @@ git clone https://github.com/About7Sharks/htmxSite.git
 You will need deno installed on your machine. You can install it [here](https://deno.land/#installation).
 
 If you have a repo of markdown files you can change the utils.ts file to point to the correct github user and repo.
+
+To deploy with deno deploy set the host env to the correct url.
 ## 📝 Usage
 ```bash
 cd htmxSite
