@@ -19,6 +19,7 @@ app.use(async (context, next) => {
   }
 });
 
+
 router.get("/nav", async (context) => (context.response.body = await navbar()));
 
 router.get("/article/:article", async (context) => {
