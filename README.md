@@ -1,9 +1,9 @@
 # 🚀 HTMX + Deno 
 Live demo [here](https://htmxexample.deno.dev/)
 
-> HTMX is a library that allows you to access AJAX, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext.
+[HTMX](https://htmx.org) is a library that allows you to access AJAX, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext.
 
-Deno is a simple, modern and secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust. It can also render jsx to html on the server side. 
+[Deno](https://deno.land) is a simple, modern and secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust. It can also render jsx to html on the server side. 
 
 > This uses 0 boiler plate code and 0 build steps. With this you can build modern web applications with the simplicity in a modular way.
 
