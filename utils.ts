@@ -1,4 +1,4 @@
-import { getArticles } from "npm:socks-librarian";
+import { getArticles } from "https://esm.sh/socks-librarian";
 
 export const articles = await getArticles({
   user: "About7Sharks",
