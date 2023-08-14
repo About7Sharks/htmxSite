@@ -13,7 +13,7 @@ export const createHeader = (data) => {
 // base url for the server
 export const url = () => {
   // if localhost, use localhost
-  if (Deno.env.get("DENO_DEPLOYMENT_ID") !== undefined){
+  if (!Deno.hostname().includes('local')){
     return 'https://htmxexample.deno.dev/';
   }
   return "http://localhost:8000/";
