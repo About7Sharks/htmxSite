@@ -3,13 +3,29 @@ import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import { navbar,articleContent } from "./components/index.ts";
 import {url} from "./utils.ts";
 const router = new Router();
-router.get("/", async (context) => (context.response.body = await navbar()));
 
-router.get("/:article", async (context) => {
+const app = new Application();
+
+// First we try to serve static files from the _site folder. If that fails, we
+// fall through to the router below.
+app.use(async (context, next) => {
+  try {
+    await context.send({
+      root: `${Deno.cwd()}`,
+      index: "index.html",
+    });
+  } catch {
+    await next();
+  }
+});
+
+router.get("/nav", async (context) => (context.response.body = await navbar()));
+
+router.get("/article/:article", async (context) => {
   context.response.body = await articleContent(context.params.article);
 });
 
-const app = new Application();
+
 // Enable CORS for All Routes
 app.use(oakCors());
 app.use(router.routes());

@@ -12,9 +12,9 @@ export const createHeader = (data) => {
 
 // base url for the server
 export const url = () => {
-  // if localhost, use localhost
-  if (!Deno.hostname().includes('local')){
-    return 'https://htmxexample.deno.dev/';
+  let url = "http://localhost:8000/";
+  if (!Deno.hostname().includes("local")) {
+    url = "https://htmxexample.deno.dev/";
   }
-  return "http://localhost:8000/";
-}
+  return url;
+};
