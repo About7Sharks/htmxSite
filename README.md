@@ -22,7 +22,7 @@ To deploy with deno deploy set the host env to the correct url.
 ## 📝 Usage
 ```bash
 cd htmxSite
-deno run --allow-all --watch server.ts
+deno run --allow-all --watch server/index.ts
 ```
 
 

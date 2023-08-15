@@ -33,6 +33,12 @@ app.use(async (context, next) => {
     context.response.redirect("/");
     console.log(bold("non hx-request") + yellow(` rerouting`));
   }
+//   get ip address
+    const ip = context.request.ip;
+    console.log(bold("ip address: ") + green(`${ip}`));
+    // user agent
+    const ua = context.request.headers.get("user-agent");
+    console.log(bold("user agent: ") + green(`${ua}`));
   console.log(bold("hx-request") + green(` received`));
   await next();
 });
