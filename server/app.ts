@@ -1,7 +1,11 @@
 import { Application } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
-import { url } from "../utils.ts";
 import { router } from "./router.ts";
+import {
+  bold,
+  yellow,
+  green,
+} from "https://deno.land/std@0.194.0/fmt/colors.ts";
 
 export const app = new Application();
 // Testing if this triggers a redeploy
@@ -9,6 +13,7 @@ export const app = new Application();
 // fall through to the router below.
 app.use(async (context, next) => {
   try {
+    console.log(bold("trying to serve static files"));
     await context.send({
       root: `${Deno.cwd()}`,
       index: "index.html",
@@ -26,7 +31,9 @@ app.use(async (context, next) => {
   } = context;
   if (!headers.get("hx-request")) {
     context.response.redirect("/");
+    console.log(bold("non hx-request") + yellow(` rerouting`));
   }
+  console.log(bold("hx-request") + green(` received`));
   await next();
 });
 
