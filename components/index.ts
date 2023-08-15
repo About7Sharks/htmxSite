@@ -2,5 +2,5 @@
 // this allows for 1 import statement in other files
 import { navbar } from "./nav.tsx";
 import { articleContent } from "./articleContent.tsx";
-
-export { navbar, articleContent };
+import { Home } from "./home.tsx";
+export { navbar, articleContent, Home };

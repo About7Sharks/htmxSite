@@ -10,26 +10,21 @@
       integrity="sha384-lVb3Rd/Ca0AxaoZg5sACe8FJKF0tnUgR2Kd7ehUOG5GCcROv5uBIZsOqovBAcWua"
       crossorigin="anonymous"
     ></script>
+
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="./styles/animation.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+
     <meta name="description" content="simple yet powerful htmx site" />
   </head>
   <body>
     <main class="split-screen" hx-boost="true">
       <nav class="split-screen__half" hx-trigger="load" hx-get="/nav"></nav>
-      <content id="content" class="split-screen__half slide-it">
+      <content hx-trigger="load" hx-get="/home" id="content" class="split-screen__half slide-it">
         <!-- Content below will be replaced when navigation is clicked -->
-        <h1>HTMX 📝</h1>
-        <p>This is a simple yet powerful site and tech stack 😎.</p>
-        <img
-          src="https://htmx.org/img/memes/extinction.png"
-          width="720px"
-          height="480px"
-          alt=""
-        />
       </content>
     </main>
-    <script>
+    <script> // Register the service worker
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
           .register("/service-worker.js")

@@ -33,7 +33,8 @@ body {
   color: var(--primary-text);
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 a {
@@ -131,6 +132,7 @@ main {
   grid-template-columns: 250px 1fr;
   grid-template-areas: "nav content";
   height: 100vh;
+  width: 100vw;
 }
 
 @media screen and (max-width: 768px) {

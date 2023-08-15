@@ -1,6 +1,6 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
-import { navbar, articleContent } from "./components/index.ts";
+import { navbar, articleContent, Home } from "./components/index.ts";
 import { url } from "./utils.ts";
 const router = new Router();
 
@@ -31,6 +31,7 @@ app.use(async (context, next) => {
   await next();
 });
 
+router.get("/home", async (context) => (context.response.body = await Home()));
 router.get("/nav", async (context) => (context.response.body = await navbar()));
 
 router.get("/article/:article", async (context) => {
