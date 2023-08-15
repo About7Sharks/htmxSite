@@ -1,10 +1,9 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
-import { navbar, articleContent, Home } from "./components/index.ts";
-import { url } from "./utils.ts";
-const router = new Router();
+import { url } from "../utils.ts";
+import { router } from "./router.ts";
 
-const app = new Application();
+export const app = new Application();
 // Testing if this triggers a redeploy
 // First we try to serve static files from the _site folder. If that fails, we
 // fall through to the router below.
@@ -31,17 +30,9 @@ app.use(async (context, next) => {
   await next();
 });
 
-router.get("/home", async (context) => (context.response.body = await Home()));
-router.get("/nav", async (context) => (context.response.body = await navbar()));
-
-router.get("/article/:article", async (context) => {
-  context.response.body = await articleContent(context.params.article);
-});
-
 // Enable CORS for All Routes
 app.use(oakCors());
 app.use(router.routes());
 app.use(router.allowedMethods());
-console.log(`Server running on ${url()}`);
 
-await app.listen({ port: 8000 });
+export default app;
