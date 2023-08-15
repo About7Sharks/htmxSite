@@ -9,6 +9,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   /* Dark Theme */
   :root {
     --primary-bg: #121212;
@@ -23,7 +24,10 @@
   text-wrap: balance;
   font-family: "Arial", sans-serif;
 }
-
+img{
+  /* 1045 x 683 (1.53) */
+  aspect-ratio: 1.53;
+}
 body {
   background-color: var(--primary-bg);
   color: var(--primary-text);
@@ -36,6 +40,7 @@ a {
   color: var(--color-link);
   text-decoration: none;
   transition: color 0.3s ease;
+
   :hover {
     color: darken(var(--color-link), 10%);
   }
@@ -46,8 +51,9 @@ blockquote {
   border-left: 10px solid var(--border-color);
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "\201C" "\201D" "\2018" "\2019";
   font-style: italic;
+
   :before {
     content: open-quote;
     font-size: 4em;
@@ -55,14 +61,17 @@ blockquote {
     margin-right: 0.25em;
     vertical-align: -0.4em;
   }
-  > p {
+
+  >p {
     display: inline;
   }
 }
-.links{
+
+.links {
   position: absolute;
   bottom: 25px;
-  > a{
+
+  >a {
     display: inline;
     margin: 0 5px;
   }
@@ -76,21 +85,30 @@ nav {
   height: 100vh;
   background-color: var(--secondary-bg);
   padding-top: 10px;
-  > h3{
+
+  >h3 {
     margin-left: 15px;
     text-decoration: underline;
+
+    > a {
+      color: var(--secondary-text);
+    }
   }
-  > li {
+
+  >ul li {
     list-style: none;
     margin: 0;
-    padding: 3px 15px;
+    padding: 3px 0px;
+    cursor: pointer;
+
     :hover {
       background-color: var(--secondary-bg);
       padding-left: 5px;
       opacity: 0.7;
     }
   }
-  > li a {
+
+  >li a {
     cursor: pointer;
   }
 }

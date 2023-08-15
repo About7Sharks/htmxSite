@@ -9,14 +9,15 @@ export const navbar = async () => {
   }
   const _url = url();
   return await renderToString(
-    <>
-      <h3>Articles 📝</h3>
+    <ul>
+      <h3><a href="/">Articles 📝</a></h3>
       {articles.map(({ data }) => (
         <li>
           <a
             hx-target="#content"
             hx-swap="innerHTML transition:true"
             hx-get={`${_url + "article/" + data.title}`}
+            hx-push-url="true"
           >
             {data.title}
           </a>
@@ -27,6 +28,6 @@ export const navbar = async () => {
         <a href="https://htmx.org/">HTMX</a> |
         <a href="https://deno.land/">Deno</a>
       </li>
-    </>
+    </ul>
   );
 };

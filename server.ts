@@ -1,7 +1,7 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
-import { navbar,articleContent } from "./components/index.ts";
-import {url} from "./utils.ts";
+import { navbar, articleContent } from "./components/index.ts";
+import { url } from "./utils.ts";
 const router = new Router();
 
 const app = new Application();
@@ -18,14 +18,24 @@ app.use(async (context, next) => {
     await next();
   }
 });
-
+// this should run before any other middleware
+app.use(async (context, next) => {
+  // we want to see if this is the site or if it was a direct request
+  // well check hx-request header as our site will send this
+  const {
+    request: { headers },
+  } = context;
+  if (!headers.get("hx-request")) {
+    context.response.redirect("/");
+  }
+  await next();
+});
 
 router.get("/nav", async (context) => (context.response.body = await navbar()));
 
 router.get("/article/:article", async (context) => {
   context.response.body = await articleContent(context.params.article);
 });
-
 
 // Enable CORS for All Routes
 app.use(oakCors());

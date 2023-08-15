@@ -11,7 +11,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="./styles/animation.css">
+    <link rel="stylesheet" href="./styles/animation.css" />
+    <meta name="description" content="simple yet powerful htmx site" />
   </head>
   <body>
     <main class="split-screen" hx-boost="true">
@@ -20,8 +21,22 @@
         <!-- Content below will be replaced when navigation is clicked -->
         <h1>HTMX 📝</h1>
         <p>This is a simple yet powerful site and tech stack 😎.</p>
-        <img src="https://htmx.org/img/memes/extinction.png" width="100%" alt="">
+        <img
+          src="https://htmx.org/img/memes/extinction.png"
+          width="720px"
+          height="480px"
+          alt=""
+        />
       </content>
     </main>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(function () {
+            console.log("Service Worker Registered");
+          });
+      }
+    </script>
   </body>
 </html>
